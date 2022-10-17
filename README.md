@@ -7,7 +7,7 @@
 npm install
 ```
 
-That will install the required packages and dependencies.
+That will install the required packages and dependencies. <br />
 3. Execute the code below in the terminal:
 
 ```
