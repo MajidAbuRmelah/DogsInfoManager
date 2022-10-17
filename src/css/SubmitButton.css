@@ -1,0 +1,25 @@
+/* From uiverse.io by @adamgiebl */
+.submit-button {
+    display: block;
+    position: relative;
+    padding: 15px 35px;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 3px solid var(--primary-color);
+    background: transparent;
+    transition: ease-out 0.3s;
+    box-shadow: inset 0 0 0 0 var(--primary-color);
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 var(--primary-color);
+}
+
+.submit-button:active {
+    transform: scale(0.9);
+}

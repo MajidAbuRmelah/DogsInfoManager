@@ -1,0 +1,13 @@
+.form-item-container {
+    display: flex;
+    flex-direction: column;
+}
+.form-item-label {
+    padding-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.required:after {
+    content:" *";
+    color: red;
+}

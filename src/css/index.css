@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+  --primary-color: #B6753F;
+  --error-color: #e63946;
+}
+
+/*** General ***/
+input, select {
+  width: 100%;
+  font-size: 1em;
+  padding: 12px;
+  border-radius: 5px;
+  border: 3px solid #ccc;
+  transition: 0.2s;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border: 3px solid var(--primary-color);
+}
+
+.hasError {
+  border-color: var(--error-color);
+}
