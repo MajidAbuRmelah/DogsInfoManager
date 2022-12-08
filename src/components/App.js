@@ -12,22 +12,26 @@ import ModalOptions from '../models/ModalOptions';
 function App() {
   const [items, setItems] = useState([]);
   const [modalOptions, setModalOptions] = useState(new ModalOptions(false)); //Explanation: We are using an object to avoid too many re-renders.
-  const [isLoading, setIsLoading] = useState(true);
-  const getItems = async () => {
-    setIsLoading(true);
-    let response = await HttpRequest(GetDogs.path, GetDogs.type);
-    if (!response.isSuccess) {
-        alert(Errors.HttpErrorMessage);
-        setIsLoading(false);
-        return;
-    }
-    setItems(response.data.dogs);
-    setIsLoading(false);
-  };
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    return () => {
-      getItems(); //Run async function to fetch items.
-    }
+    // Run async function to fetch items.
+    let isSubscribed = true;
+    const getItems = async () => {
+      if (!isSubscribed) {
+        return;
+      }
+      setIsLoading(true);
+      let response = await HttpRequest(GetDogs.path, GetDogs.type);
+      if (!response.isSuccess) {
+          alert(Errors.HttpErrorMessage);
+          setIsLoading(false);
+          return;
+      }
+      setItems(response.data.dogs);
+      setIsLoading(false);
+    };
+    getItems();
+    return () => isSubscribed = false;
   }, []);
   /*** Defind Arrow Functions ***/
   const addItemCallBack = (item) => {
