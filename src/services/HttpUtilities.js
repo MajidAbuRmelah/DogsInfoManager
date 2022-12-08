@@ -22,7 +22,7 @@ export default async function HttpRequest(path, type, json = null, parameter = n
             callback = axios.put(path, json);
             break;
         case APITypeEnum.GET:
-            callback = axios.get(path);
+            callback = axios({method: 'get', url: path, timeout: 5000});
             break;
         case APITypeEnum.DELETE:
             callback = axios.delete(path);
